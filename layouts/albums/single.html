@@ -1,0 +1,12 @@
+{{- define "main" }}
+{{with ((.Resources.GetMatch "cover.*").Resize "500x webp").Fit "1080x720"}} 
+<img alt="{{.Title}}" loading="lazy" src="{{.Permalink}}" />
+{{end}}
+{{ with .Param "artist"}}
+<div class="artist"> Artist: {{ . }}</div>
+{{end}}
+{{ with .Param "Year"}}
+<div class="year"> Year: {{ . }}</div>
+{{end}}
+<div class="description"> {{ .Content }} </div>
+{{end}}
